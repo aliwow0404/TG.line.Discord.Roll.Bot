@@ -2,8 +2,15 @@
 exports.analytics = require('../modules/analytics');
 const channelKeyword = process.env.DISCORD_CHANNEL_KEYWORD || "";
 const channelSecret = process.env.DISCORD_CHANNEL_SECRET;
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const Discord = require('discord.js-light');
+const client = new Discord.Client({
+	cacheGuilds: true,
+	cacheChannels: false,
+	cacheOverwrites: false,
+	cacheRoles: true,
+	cacheEmojis: false,
+	cachePresences: false
+});
 const {
 	Random,
 	nodeCrypto
