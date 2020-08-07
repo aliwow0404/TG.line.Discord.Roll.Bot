@@ -1,3 +1,5 @@
+
+
 "use strict";
 if (!process.env.DISCORD_CHANNEL_SECRET) {
 	return;
@@ -6,6 +8,11 @@ const channelSecret = process.env.DISCORD_CHANNEL_SECRET;
 const {
 	ShardingManager
 } = require('discord.js');
+
+var http = require('http');
+setInterval(() => {
+    http.get('http://[aitobi].herokuapp.com/');
+}, 1000*60*15);
 
 const manager = new ShardingManager('./modules/discord_bot.js', {
 	token: channelSecret
